@@ -4,7 +4,7 @@ function LoginCtrl($scope, $location, StompClient) {
             $location.path( "/chat" );
             $scope.$apply();
             StompClient.subscribe("/topic/test", function(d) {
-                console.log(d.body);
+                chat.messageBuffer = d.body;
             });
 
         });
